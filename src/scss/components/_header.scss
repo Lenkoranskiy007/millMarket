@@ -11,21 +11,25 @@
   }
 
   &__logo {
-    display: flex;
+    display: block;
 
     img {
-      margin-right: 15px;
+      height: 50px;
+      aspect-ratio: auto 190 / 50;
+      width: 190px;
     }
 
-    h1 {
-      color: #181818;
+    h3 {
+     
+      color: green;
       font-size: 24px;
       letter-spacing: 1%;
       text-transform: uppercase;
-      font-weight: 800;
+      font-weight: 500;
     }
 
     p {
+      
       color: #7b7b7b;
     }
   }

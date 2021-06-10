@@ -1,70 +1,31 @@
+import React from 'react'
 import './App.css';
 import './scss/app.scss'
-import logo from './assets/img/pizza-logo.svg'
+// import logo from './assets/img/logo10.svg'
+import { Header } from './Header';
+// import { Button } from './Button';
+
+
 
 
 function App() {
   return (
     <div>
     <div className="wrapper">
-      <div className="header">
-        <div className="container">
-          <div className="header__logo">
-            <img width="38" src={logo} alt="Pizza logo" />
-            <div>
-              <h1>React Pizza</h1>
-              <p>самая вкусная пицца во вселенной</p>
-            </div>
-          </div>
-          <div className="header__cart">
-            <a href="/cart.html" className="button button--cart">
-              <span>520 ₽</span>
-              <div className="button__delimiter"></div>
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 18 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M6.33333 16.3333C7.06971 16.3333 7.66667 15.7364 7.66667 15C7.66667 14.2636 7.06971 13.6667 6.33333 13.6667C5.59695 13.6667 5 14.2636 5 15C5 15.7364 5.59695 16.3333 6.33333 16.3333Z"
-                  stroke="white"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M14.3333 16.3333C15.0697 16.3333 15.6667 15.7364 15.6667 15C15.6667 14.2636 15.0697 13.6667 14.3333 13.6667C13.597 13.6667 13 14.2636 13 15C13 15.7364 13.597 16.3333 14.3333 16.3333Z"
-                  stroke="white"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M4.78002 4.99999H16.3334L15.2134 10.5933C15.1524 10.9003 14.9854 11.176 14.7417 11.3722C14.4979 11.5684 14.1929 11.6727 13.88 11.6667H6.83335C6.50781 11.6694 6.1925 11.553 5.94689 11.3393C5.70128 11.1256 5.54233 10.8295 5.50002 10.5067L4.48669 2.82666C4.44466 2.50615 4.28764 2.21182 4.04482 1.99844C3.80201 1.78505 3.48994 1.66715 3.16669 1.66666H1.66669"
-                  stroke="white"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span>3</span>
-            </a>
-          </div>
-        </div>
-      </div>
+    <Header/>
+    {/* <Button outline/> */}
+
       <div className="content">
         <div className="container">
           <div className="content__top">
             <div className="categories">
               <ul>
                 <li className="active">Все</li>
-                <li>Мясные</li>
-                <li>Вегетарианская</li>
-                <li>Гриль</li>
-                <li>Острые</li>
-                <li>Закрытые</li>
+                <li>Фрукты </li>
+                <li>Ягоды</li>
+                <li>Овощи</li>
+                <li>Зелень</li>
+                <li>Сухофрукты</li>
               </ul>
             </div>
             <div className="sort">
@@ -93,15 +54,15 @@ function App() {
               </div>
             </div>
           </div>
-          <h2 className="content__title">Все пиццы</h2>
+          <h2 className="content__title">Все Фрукты</h2>
           <div className="content__items">
             <div className="pizza-block">
   <img
     className="pizza-block__image"
-    src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+    src="https://apicp.millmarket.ru/products/1/11.jpeg"
     alt="Pizza"
   />
-  <h4 className="pizza-block__title">Чизбургер-пицца</h4>
+  <h4 className="pizza-block__title">Бананы</h4>
   <div className="pizza-block__selector">
     <ul>
       <li className="active">тонкое</li>
@@ -116,7 +77,7 @@ function App() {
   <div className="pizza-block__bottom">
     <div className="pizza-block__price">от 395 ₽</div>
     <div className="button button--outline button--add">
-      <svg
+      {/* <svg
         width="12"
         height="12"
         viewBox="0 0 12 12"
@@ -127,7 +88,7 @@ function App() {
           d="M10.8 4.8H7.2V1.2C7.2 0.5373 6.6627 0 6 0C5.3373 0 4.8 0.5373 4.8 1.2V4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H4.8V10.8C4.8 11.4627 5.3373 12 6 12C6.6627 12 7.2 11.4627 7.2 10.8V7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z"
           fill="white"
         />
-      </svg>
+      </svg> */}
       <span>Добавить</span>
       <i>2</i>
     </div>
@@ -135,10 +96,10 @@ function App() {
 </div> <div className="pizza-block">
   <img
     className="pizza-block__image"
-    src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+    src="https://apicp.millmarket.ru/products/1/12.jpeg"
     alt="Pizza"
   />
-  <h4 className="pizza-block__title">Чизбургер-пицца</h4>
+  <h4 className="pizza-block__title">Манго спелое</h4>
   <div className="pizza-block__selector">
     <ul>
       <li className="active">тонкое</li>
@@ -153,7 +114,7 @@ function App() {
   <div className="pizza-block__bottom">
     <div className="pizza-block__price">от 395 ₽</div>
     <div className="button button--outline button--add">
-      <svg
+      {/* <svg
         width="12"
         height="12"
         viewBox="0 0 12 12"
@@ -164,7 +125,7 @@ function App() {
           d="M10.8 4.8H7.2V1.2C7.2 0.5373 6.6627 0 6 0C5.3373 0 4.8 0.5373 4.8 1.2V4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H4.8V10.8C4.8 11.4627 5.3373 12 6 12C6.6627 12 7.2 11.4627 7.2 10.8V7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z"
           fill="white"
         />
-      </svg>
+      </svg> */}
       <span>Добавить</span>
       <i>2</i>
     </div>
@@ -172,10 +133,10 @@ function App() {
 </div> <div className="pizza-block">
   <img
     className="pizza-block__image"
-    src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+    src="https://apicp.millmarket.ru/products/1/13.jpeg"
     alt="Pizza"
   />
-  <h4 className="pizza-block__title">Чизбургер-пицца</h4>
+  <h4 className="pizza-block__title">Яблоки красные</h4>
   <div className="pizza-block__selector">
     <ul>
       <li className="active">тонкое</li>
@@ -190,7 +151,7 @@ function App() {
   <div className="pizza-block__bottom">
     <div className="pizza-block__price">от 395 ₽</div>
     <div className="button button--outline button--add">
-      <svg
+      {/* <svg
         width="12"
         height="12"
         viewBox="0 0 12 12"
@@ -201,7 +162,7 @@ function App() {
           d="M10.8 4.8H7.2V1.2C7.2 0.5373 6.6627 0 6 0C5.3373 0 4.8 0.5373 4.8 1.2V4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H4.8V10.8C4.8 11.4627 5.3373 12 6 12C6.6627 12 7.2 11.4627 7.2 10.8V7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z"
           fill="white"
         />
-      </svg>
+      </svg> */}
       <span>Добавить</span>
       <i>2</i>
     </div>
@@ -209,10 +170,10 @@ function App() {
 </div> <div className="pizza-block">
   <img
     className="pizza-block__image"
-    src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+    src="https://apicp.millmarket.ru/products/1/14.jpeg"
     alt="Pizza"
   />
-  <h4 className="pizza-block__title">Чизбургер-пицца</h4>
+  <h4 className="pizza-block__title">Апельсин</h4>
   <div className="pizza-block__selector">
     <ul>
       <li className="active">тонкое</li>
@@ -227,7 +188,7 @@ function App() {
   <div className="pizza-block__bottom">
     <div className="pizza-block__price">от 395 ₽</div>
     <div className="button button--outline button--add">
-      <svg
+      {/* <svg
         width="12"
         height="12"
         viewBox="0 0 12 12"
@@ -238,7 +199,7 @@ function App() {
           d="M10.8 4.8H7.2V1.2C7.2 0.5373 6.6627 0 6 0C5.3373 0 4.8 0.5373 4.8 1.2V4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H4.8V10.8C4.8 11.4627 5.3373 12 6 12C6.6627 12 7.2 11.4627 7.2 10.8V7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z"
           fill="white"
         />
-      </svg>
+      </svg> */}
       <span>Добавить</span>
       <i>2</i>
     </div>
@@ -246,10 +207,10 @@ function App() {
 </div> <div className="pizza-block">
   <img
     className="pizza-block__image"
-    src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+    src="https://apicp.millmarket.ru/products/2/20.jpeg"
     alt="Pizza"
   />
-  <h4 className="pizza-block__title">Чизбургер-пицца</h4>
+  <h4 className="pizza-block__title">Клубника</h4>
   <div className="pizza-block__selector">
     <ul>
       <li className="active">тонкое</li>
@@ -264,7 +225,7 @@ function App() {
   <div className="pizza-block__bottom">
     <div className="pizza-block__price">от 395 ₽</div>
     <div className="button button--outline button--add">
-      <svg
+      {/* <svg
         width="12"
         height="12"
         viewBox="0 0 12 12"
@@ -275,7 +236,7 @@ function App() {
           d="M10.8 4.8H7.2V1.2C7.2 0.5373 6.6627 0 6 0C5.3373 0 4.8 0.5373 4.8 1.2V4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H4.8V10.8C4.8 11.4627 5.3373 12 6 12C6.6627 12 7.2 11.4627 7.2 10.8V7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z"
           fill="white"
         />
-      </svg>
+      </svg> */}
       <span>Добавить</span>
       <i>2</i>
     </div>
@@ -283,10 +244,10 @@ function App() {
 </div> <div className="pizza-block">
   <img
     className="pizza-block__image"
-    src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+    src="https://apicp.millmarket.ru/products/2/21.jpeg"
     alt="Pizza"
   />
-  <h4 className="pizza-block__title">Чизбургер-пицца</h4>
+  <h4 className="pizza-block__title">Малина</h4>
   <div className="pizza-block__selector">
     <ul>
       <li className="active">тонкое</li>
@@ -301,7 +262,7 @@ function App() {
   <div className="pizza-block__bottom">
     <div className="pizza-block__price">от 395 ₽</div>
     <div className="button button--outline button--add">
-      <svg
+      {/* <svg
         width="12"
         height="12"
         viewBox="0 0 12 12"
@@ -312,7 +273,7 @@ function App() {
           d="M10.8 4.8H7.2V1.2C7.2 0.5373 6.6627 0 6 0C5.3373 0 4.8 0.5373 4.8 1.2V4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H4.8V10.8C4.8 11.4627 5.3373 12 6 12C6.6627 12 7.2 11.4627 7.2 10.8V7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z"
           fill="white"
         />
-      </svg>
+      </svg> */}
       <span>Добавить</span>
       <i>2</i>
     </div>
@@ -320,10 +281,10 @@ function App() {
 </div> <div className="pizza-block">
   <img
     className="pizza-block__image"
-    src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+    src="https://apicp.millmarket.ru/products/2/33.jpeg"
     alt="Pizza"
   />
-  <h4 className="pizza-block__title">Чизбургер-пицца</h4>
+  <h4 className="pizza-block__title">Смородина</h4>
   <div className="pizza-block__selector">
     <ul>
       <li className="active">тонкое</li>
@@ -338,7 +299,7 @@ function App() {
   <div className="pizza-block__bottom">
     <div className="pizza-block__price">от 395 ₽</div>
     <div className="button button--outline button--add">
-      <svg
+      {/* <svg
         width="12"
         height="12"
         viewBox="0 0 12 12"
@@ -349,7 +310,7 @@ function App() {
           d="M10.8 4.8H7.2V1.2C7.2 0.5373 6.6627 0 6 0C5.3373 0 4.8 0.5373 4.8 1.2V4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H4.8V10.8C4.8 11.4627 5.3373 12 6 12C6.6627 12 7.2 11.4627 7.2 10.8V7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z"
           fill="white"
         />
-      </svg>
+      </svg> */}
       <span>Добавить</span>
       <i>2</i>
     </div>
@@ -357,10 +318,10 @@ function App() {
 </div> <div className="pizza-block">
   <img
     className="pizza-block__image"
-    src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+    src="https://apicp.millmarket.ru/products/2/34.jpeg"
     alt="Pizza"
   />
-  <h4 className="pizza-block__title">Чизбургер-пицца</h4>
+  <h4 className="pizza-block__title">Ежевика</h4>
   <div className="pizza-block__selector">
     <ul>
       <li className="active">тонкое</li>
@@ -375,7 +336,7 @@ function App() {
   <div className="pizza-block__bottom">
     <div className="pizza-block__price">от 395 ₽</div>
     <div className="button button--outline button--add">
-      <svg
+      {/* <svg
         width="12"
         height="12"
         viewBox="0 0 12 12"
@@ -386,7 +347,7 @@ function App() {
           d="M10.8 4.8H7.2V1.2C7.2 0.5373 6.6627 0 6 0C5.3373 0 4.8 0.5373 4.8 1.2V4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H4.8V10.8C4.8 11.4627 5.3373 12 6 12C6.6627 12 7.2 11.4627 7.2 10.8V7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z"
           fill="white"
         />
-      </svg>
+      </svg> */}
       <span>Добавить</span>
       <i>2</i>
     </div>
@@ -394,10 +355,10 @@ function App() {
 </div> <div className="pizza-block">
   <img
     className="pizza-block__image"
-    src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
+    src="https://apicp.millmarket.ru/products/1/114.jpeg"
     alt="Pizza"
   />
-  <h4 className="pizza-block__title">Чизбургер-пицца</h4>
+  <h4 className="pizza-block__title">Яблоки гренни</h4>
   <div className="pizza-block__selector">
     <ul>
       <li className="active">тонкое</li>
@@ -412,7 +373,7 @@ function App() {
   <div className="pizza-block__bottom">
     <div className="pizza-block__price">от 395 ₽</div>
     <div className="button button--outline button--add">
-      <svg
+      {/* <svg
         width="12"
         height="12"
         viewBox="0 0 12 12"
@@ -423,7 +384,7 @@ function App() {
           d="M10.8 4.8H7.2V1.2C7.2 0.5373 6.6627 0 6 0C5.3373 0 4.8 0.5373 4.8 1.2V4.8H1.2C0.5373 4.8 0 5.3373 0 6C0 6.6627 0.5373 7.2 1.2 7.2H4.8V10.8C4.8 11.4627 5.3373 12 6 12C6.6627 12 7.2 11.4627 7.2 10.8V7.2H10.8C11.4627 7.2 12 6.6627 12 6C12 5.3373 11.4627 4.8 10.8 4.8Z"
           fill="white"
         />
-      </svg>
+      </svg> */}
       <span>Добавить</span>
       <i>2</i>
     </div>
@@ -436,5 +397,8 @@ function App() {
     </div>
   );
 }
+
+
+
 
 export default App;
