@@ -1,23 +1,37 @@
-import React from 'react'
+import React, {useState} from 'react'
+
 
 type CategoriesType = {
   item: string[]
+  onClickItem: any
 }
 
-export const Categories: React.FC<CategoriesType> = (props: CategoriesType) => {
+
+
+export const Categories = (props: CategoriesType) => {
+
+
+  let [activeItem , setActiveItem ]  = React.useState<null | number>(null)
+
+  const onClickItem = (index: number | null) => {
+    setActiveItem(index)
+  }
+
     return <> 
        <div className="categories">
               <ul>
-                <li className="active">Все</li>
-                {/* <li>Фрукты </li>
-                <li>Ягоды</li>
-                <li>Овощи</li>
-                <li>Зелень</li>
-                <li>Сухофрукты</li> */}
-                {
-                  props.item.map(item => {
-                    return <li>
+                <li className={activeItem === null ? 'active' : ''} onClick={() => {onClickItem(null)}} >Все</li>
+              
+                {props.item &&
+                  props.item.map((item, key)  => {
+                    return <li
+                     key={`${item}_${key}`}
+                     className={activeItem === key ? 'active' : ''}
+                     onClick={() => onClickItem(key)}
+
+                     >
                       {item}
+                      
                     </li>
                   })
                 }

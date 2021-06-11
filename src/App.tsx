@@ -13,7 +13,7 @@ function App() {
       <div className="content">
         <div className="container">
           <div className="content__top">
-         <Categories item={[
+         <Categories onClickItem={(item: string ) => console.log(item)} item={[
            'Фрукты', 'Ягоды', 'Овощи', 'Зелень','Сухофрукты'
          ]}/>
             <div className="sort">
