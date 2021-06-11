@@ -1,7 +1,6 @@
 import React from 'react'
-
-import logo from './assets/img/logo10.svg'
-
+import logo from '../assets/img/logo10.svg'
+import {Button} from '../components'
 
  export const Header = () => {
     return <div>
@@ -9,14 +8,13 @@ import logo from './assets/img/logo10.svg'
         <div className="container">
           <div className="header__logo">
             <img width="38" src={logo} alt="millMarket logo" />
-            <h3>Доставка фруктов и овощей</h3>
+           
             <div>
-             
-        
+            <h3>Доставка фруктов и овощей</h3>
             </div>
           </div>
           <div className="header__cart">
-            <a href="/cart.html" className="button button--cart">
+            <Button className='button--cart'>
               <span>520 ₽</span>
               <div className="button__delimiter"></div>
               <svg
@@ -49,7 +47,9 @@ import logo from './assets/img/logo10.svg'
                 />
               </svg>
               <span>3</span>
-            </a>
+          
+            </Button>
+           
           </div>
          
         </div>

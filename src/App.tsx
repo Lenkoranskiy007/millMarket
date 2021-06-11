@@ -1,10 +1,7 @@
 import React from 'react'
 import './App.css';
 import './scss/app.scss'
-// import logo from './assets/img/logo10.svg'
-import { Header } from './Header';
-// import { Button } from './Button';
-
+import { Header, Categories } from './components';
 
 
 
@@ -13,21 +10,12 @@ function App() {
     <div>
     <div className="wrapper">
     <Header/>
-    {/* <Button outline/> */}
-
       <div className="content">
         <div className="container">
           <div className="content__top">
-            <div className="categories">
-              <ul>
-                <li className="active">Все</li>
-                <li>Фрукты </li>
-                <li>Ягоды</li>
-                <li>Овощи</li>
-                <li>Зелень</li>
-                <li>Сухофрукты</li>
-              </ul>
-            </div>
+         <Categories item={[
+           'Фрукты', 'Ягоды', 'Овощи', 'Зелень','Сухофрукты'
+         ]}/>
             <div className="sort">
               <div className="sort__label">
                 <svg
