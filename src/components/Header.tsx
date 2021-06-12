@@ -1,11 +1,13 @@
 import React from 'react'
 import logo from '../assets/img/logo10.svg'
 import {Button} from '../components'
+import {Link} from 'react-router-dom'
 
  export const Header = () => {
     return <div>
     <div className="header">
         <div className="container">
+          <Link to='/'>
           <div className="header__logo">
             <img width="38" src={logo} alt="millMarket logo" />
            
@@ -13,7 +15,11 @@ import {Button} from '../components'
             <h3>Доставка фруктов и овощей</h3>
             </div>
           </div>
+          </Link>
+         
           <div className="header__cart">
+
+            <Link  to='/cart'>
             <Button className='button--cart'>
               <span>520 ₽</span>
               <div className="button__delimiter"></div>
@@ -49,6 +55,8 @@ import {Button} from '../components'
               <span>3</span>
           
             </Button>
+            </Link>
+        
            
           </div>
          

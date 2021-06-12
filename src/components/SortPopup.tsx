@@ -1,10 +1,19 @@
 import userEvent from '@testing-library/user-event'
 import React, { useEffect, useRef, useState } from 'react'
 
-export const SortPopup = () => {
+
+type SortPopupType = {
+    item: string[]
+}
+
+export const SortPopup = (props: SortPopupType) => {
     const [popup, setPopup] = useState<null | string | boolean >(false)
-    let [activeitem , setActiveItem ]  = useState<null | number>(0)
+    let [activeitem , setActiveItem ]  = useState<null | number | string>(0)
     const sortRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+    //@ts-ignore
+    const activeLabel = props.item[activeitem]
+
+
 
     const handleOutsideClick = (e: any) => {
      if (!e.path.includes(sortRef.current)) {
@@ -20,14 +29,10 @@ export const SortPopup = () => {
     }, [])
 
 
-
-    const popularity = ['популярности ', 'цене', 'алфавиту']
-    
-
-    
    
     const setItemCallback = (index: number) => {
       setActiveItem(index)
+      setPopup(false)
     } 
 
 
@@ -38,6 +43,7 @@ export const SortPopup = () => {
        className="sort">
               <div className="sort__label">
                 <svg
+                className={popup ? 'rotated': ''}
                   width="10"
                   height="6"
                   viewBox="0 0 10 6"
@@ -50,14 +56,14 @@ export const SortPopup = () => {
                   />
                 </svg>
                 <b>Сортировка по:</b>
-                <span onClick={ () => setPopup(!popup)}>популярности</span>
+                <span onClick={ () => setPopup(!popup)}>{activeLabel}</span>
               </div>
              
              { popup === true ?
                   <div className='sort__popup' >
                   <ul>
                       {
-                          popularity.map((item ,index) => {
+                          props.item.map((item ,index) => {
                               return <li 
                                key={`${item}_${index}`}
                                className={activeitem === index ? 'active': ''}
