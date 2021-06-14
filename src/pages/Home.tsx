@@ -20,9 +20,8 @@ export const Home = (props: HomeType) => {
           <div className="content__items">
             {
               //@ts-ignore
-              props.items.map((item,index) => <Pizza key={index} name={item.name}/>)
-             
-              
+              props.items.map((item) => <Pizza key={item.id} item={item}/>)
+          
               
             }
            

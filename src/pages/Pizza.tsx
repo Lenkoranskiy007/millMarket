@@ -1,33 +1,48 @@
 import React from 'react'
 
 type PizzaType = {
- name: string
+  id: number
+ item: any
 }
 
 
 export const Pizza = (props: PizzaType) => {
+
+
+  const arrSize = ['тонкое' , 'традиционное']
+
+  const [activeType , setActiveType ] = React.useState(0)
+
+  const setActiveItem = (index: number) => {
+     setActiveType(index)
+  }
+
+
     return (
         <div>
              <div className="pizza-block">
   <img
     className="pizza-block__image"
-    src="https://apicp.millmarket.ru/products/1/11.jpeg"
+    src={props.item.imageUrl}
     alt="Pizza"
   />
-  <h4 className="pizza-block__title">{props.name}</h4>
+  <h4 className="pizza-block__title">{props.item.name}</h4>
   <div className="pizza-block__selector">
     <ul>
-      <li className="active">тонкое</li>
-      <li>традиционное</li>
+    {
+      arrSize.map((arr, index) => <li key={index} onClick={() => {setActiveItem(index)}} className={activeType === index ? 'active': ''}>
+        {arr}
+      </li>)
+    }
     </ul>
     <ul>
-      <li className="active">26 см.</li >
-      <li>30 см.</li>
-      <li>40 см.</li>
+    <li className="active">{props.item.sizes[0]} см</li >
+      <li>{props.item.sizes[1]} см</li>
+      <li>{props.item.sizes[2]} см</li>
     </ul>
   </div>
   <div className="pizza-block__bottom">
-    <div className="pizza-block__price">от 395 ₽</div>
+    <div className="pizza-block__price">от {props.item.price} ₽</div>
     <div className="button button--outline button--add">
       {/* <svg
         width="12"
