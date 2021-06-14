@@ -9,13 +9,27 @@ import { Cart } from './pages/Cart';
 
 
 function App() {
+
+
+  const [pizzas, setPizzas] = React.useState([])
+
+  React.useEffect(() => {
+
+    fetch('http://localhost:3001/db.json').then(res => res.json()).then(pizz => {setPizzas(pizz.pizzas)});
+    
+  
+  }
+  , [])
+
+  console.log(pizzas)
+
   return (
     <div>
     <div className="wrapper">
     <Header/>
       <div className="content">
         <Switch>
-       <Route exact path='/' render={() => <Home/>} />
+       <Route exact path='/' render={() => <Home  items={pizzas}/>} />
        <Route exact path='/cart' render={() => <Cart/>} />
        <Route exact path='*' render={() => <h1>404: страница недоступна</h1>} />
 
