@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 
 type PizzaType = {
   id: number
@@ -10,11 +11,17 @@ export const Pizza = (props: PizzaType) => {
 
 
   const arrSize = ['тонкое' , 'традиционное']
+  console.log(props.item.types)
 
   const [activeType , setActiveType ] = React.useState(0)
+  const [itemActive, setItemActive] = React.useState(0)
 
   const setActiveItem = (index: number) => {
      setActiveType(index)
+  }
+
+  const ItemActiveCalbback = (index: number) => {
+    setItemActive(index)
   }
 
 
@@ -30,15 +37,25 @@ export const Pizza = (props: PizzaType) => {
   <div className="pizza-block__selector">
     <ul>
     {
-      arrSize.map((arr, index) => <li key={index} onClick={() => {setActiveItem(index)}} className={activeType === index ? 'active': ''}>
+      arrSize.map((arr, index) => <li key={index} onClick={() => {setActiveItem(index)}} className={classNames({
+        active: activeType === index,
+        disabled: !props.item.types.includes(index)
+      })}>
         {arr}
       </li>)
     }
     </ul>
     <ul>
-    <li className="active">{props.item.sizes[0]} см</li >
+      {
+        props.item.sizes.map((itm: any , index: number ) => {
+            return <li onClick={() => ItemActiveCalbback(index)} className={itemActive === index ? 'active': ''}>
+              {itm}
+            </li>
+        })
+      }
+    {/* <li className="active">{props.item.sizes[0]} см</li >
       <li>{props.item.sizes[1]} см</li>
-      <li>{props.item.sizes[2]} см</li>
+      <li>{props.item.sizes[2]} см</li> */}
     </ul>
   </div>
   <div className="pizza-block__bottom">
