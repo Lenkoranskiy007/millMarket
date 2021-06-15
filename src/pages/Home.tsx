@@ -8,6 +8,8 @@ type HomeType = {
 }
 
 export const Home = (props: HomeType) => {
+  console.log(props.items);
+  
  return <> 
         <div className="container">
           <div className="content__top">
