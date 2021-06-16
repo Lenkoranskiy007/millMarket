@@ -8,7 +8,7 @@ type HomeType = {
 }
 
 export const Home = (props: HomeType) => {
-  console.log(props.items);
+  
   
  return <> 
         <div className="container">
@@ -16,7 +16,7 @@ export const Home = (props: HomeType) => {
          <Categories onClickItem={(item: string ) => console.log(item)} item={[
            'Фрукты', 'Ягоды', 'Овощи', 'Зелень','Сухофрукты'
          ]}/>
-          <SortPopup item={['популярности', 'цене', 'алфавиту']}/>
+          <SortPopup item={[{name:'популярности', type: 'popular'}, {name:'цене', type: 'price'},{name:'алфавиту', type: 'alphabet'} ]}/>
           </div>
           <h2 className="content__title">Все Фрукты</h2>
           <div className="content__items">

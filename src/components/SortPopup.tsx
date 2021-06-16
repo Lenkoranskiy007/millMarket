@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 
 
 type SortPopupType = {
-    item: string[]
+    item: any
 }
 
 export const SortPopup = (props: SortPopupType) => {
@@ -11,7 +11,7 @@ export const SortPopup = (props: SortPopupType) => {
     let [activeitem , setActiveItem ]  = useState<null | number | string>(0)
     const sortRef = useRef() as React.MutableRefObject<HTMLInputElement>;
     //@ts-ignore
-    const activeLabel = props.item[activeitem]
+    const activeLabel = props.item[activeitem].name
 
 
 
@@ -63,13 +63,13 @@ export const SortPopup = (props: SortPopupType) => {
                   <div className='sort__popup' >
                   <ul>
                       {
-                          props.item.map((item ,index) => {
+                          props.item.map((obj: any ,index: number) => {
                               return <li 
-                               key={`${item}_${index}`}
+                               key={`${obj.type}_${index}`}
                                className={activeitem === index ? 'active': ''}
                                onClick={() => {setItemCallback(index)}}
                                >
-                                  {item}
+                                  {obj.name}
                               </li>
                           })
   
