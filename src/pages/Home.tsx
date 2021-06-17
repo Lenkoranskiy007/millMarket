@@ -13,6 +13,7 @@ type HomeType = {
 }
 
 const categoryName = [ 'Фрукты', 'Ягоды', 'Овощи', 'Зелень','Сухофрукты']
+const sortPopupItems = [{name:'популярности', type: 'popular'}, {name:'цене', type: 'price'},{name:'алфавиту', type: 'alphabet'} ]
 
 export const Home = (props: HomeType) => {
 
@@ -24,11 +25,12 @@ export const Home = (props: HomeType) => {
   
   
 
+
  return <> 
         <div className="container">
           <div className="content__top">
          <Categories onClickItem={onSelectCategory} item={categoryName}/>
-          <SortPopup item={[{name:'популярности', type: 'popular'}, {name:'цене', type: 'price'},{name:'алфавиту', type: 'alphabet'} ]}/>
+          <SortPopup item={sortPopupItems}/>
           </div>
           <h2 className="content__title">Все Фрукты</h2>
           <div className="content__items">

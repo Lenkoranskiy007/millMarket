@@ -24,8 +24,8 @@ function App() {
 
 
   React.useEffect(() => {
-   axios.get('http://localhost:3001/db.json').then((res) => {
-      dispatch(setPizzasAC(res.data.pizzas))}) 
+   axios.get('http://localhost:3001/pizzas').then((res) => {
+      dispatch(setPizzasAC(res.data))}) 
 
   
 
