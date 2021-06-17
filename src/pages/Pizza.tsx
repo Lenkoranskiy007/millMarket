@@ -11,7 +11,6 @@ export const Pizza = (props: PizzaType) => {
 
 
   const arrSize = ['тонкое' , 'традиционное']
-  console.log(props.item.types)
 
   const [activeType , setActiveType ] = React.useState(0)
   const [itemActive, setItemActive] = React.useState(0)

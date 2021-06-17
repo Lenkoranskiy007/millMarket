@@ -19,8 +19,14 @@ export const pizzasReducer = (state: pizzasStateType = intialState, action: any)
   return state
 }
 
+type SetPizzasACType = {
+  type: 'SET_PIZZAS'
+  items: any
 
-export const setPizzasAC = (items: any) => {
+}
+
+
+export const setPizzasAC = (items: any): SetPizzasACType => {
  return {type: 'SET_PIZZAS', items}
 }
 

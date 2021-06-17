@@ -24,7 +24,7 @@ function App() {
 
 
   React.useEffect(() => {
-   axios.get('http://localhost:3000/db.json').then((res) => {
+   axios.get('http://localhost:3001/db.json').then((res) => {
       dispatch(setPizzasAC(res.data.pizzas))}) 
 
   
@@ -34,7 +34,6 @@ function App() {
   }
   , [])
 
-  console.log(pizzas)
 
   return (
     <div>
