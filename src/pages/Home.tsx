@@ -12,18 +12,22 @@ type HomeType = {
   items: string[]
 }
 
+const categoryName = [ 'Фрукты', 'Ягоды', 'Овощи', 'Зелень','Сухофрукты']
+
 export const Home = (props: HomeType) => {
 
   const items = useSelector((state: AppStateType ) =>  state.pizzasReducer.items)
   const dispatch = useDispatch()
+  const onSelectCategory = React.useCallback((item: number) => {
+    dispatch(setCategoryAC(item))
+  }, [])
+  
   
 
  return <> 
         <div className="container">
           <div className="content__top">
-         <Categories onClickItem={(item: number ) => dispatch(setCategoryAC(item))} item={[
-           'Фрукты', 'Ягоды', 'Овощи', 'Зелень','Сухофрукты'
-         ]}/>
+         <Categories onClickItem={onSelectCategory} item={categoryName}/>
           <SortPopup item={[{name:'популярности', type: 'popular'}, {name:'цене', type: 'price'},{name:'алфавиту', type: 'alphabet'} ]}/>
           </div>
           <h2 className="content__title">Все Фрукты</h2>

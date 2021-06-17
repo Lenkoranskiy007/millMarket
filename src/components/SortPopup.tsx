@@ -6,7 +6,7 @@ type SortPopupType = {
     item: any
 }
 
-export const SortPopup = (props: SortPopupType) => {
+export const SortPopup = React.memo((props: SortPopupType) => {
     const [popup, setPopup] = useState<null | string | boolean >(false)
     let [activeitem , setActiveItem ]  = useState<null | number | string>(0)
     const sortRef = useRef() as React.MutableRefObject<HTMLInputElement>;
@@ -85,4 +85,4 @@ export const SortPopup = (props: SortPopupType) => {
              
             </div>
     </>
-}
+})

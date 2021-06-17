@@ -1,4 +1,6 @@
-import React, {useState} from 'react'
+import React from 'react'
+
+
 
 
 type CategoriesType = {
@@ -6,16 +8,16 @@ type CategoriesType = {
   onClickItem: any
 }
 
-
-
-export const Categories = (props: CategoriesType) => {
+export const Categories = React.memo((props: CategoriesType) => {
 
 
   let [activeItem , setActiveItem ]  = React.useState<null | number>(null)
 
+
   const selectItem = (index: number | null) => {
     setActiveItem(index)
     props.onClickItem(index)
+
 
   }
 
@@ -40,4 +42,4 @@ export const Categories = (props: CategoriesType) => {
               </ul>
             </div>
     </>
-}
+})
