@@ -5,34 +5,29 @@ import { Header } from './components';
 import {Home} from './pages/Home'
 import {Route, Switch} from 'react-router-dom'
 import { Cart } from './pages/Cart';
-import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux';
-import {setPizzasAC} from './redux/reducers/pizzas'
 import {AppStateType} from './redux/store'
+import {setPizzasAC, fetchPizzasTC} from './redux/reducers/pizzas'
+
 
 
 
 function App() {
 
 
-  const [pizzas, setPizzas] = React.useState([])
+  // const [pizzas, setPizzas] = React.useState([])
 
   const pizza = useSelector((state: AppStateType ) =>  state.pizzasReducer.items)
 
   const dispatch = useDispatch()
 
 
-
   React.useEffect(() => {
-   axios.get('http://localhost:3001/pizzas').then((res) => {
-      dispatch(setPizzasAC(res.data))}) 
-
-  
-
-    
-  
-  }
-  , [])
+    dispatch(fetchPizzasTC())
+ 
+   }
+   , [])
+ 
 
 
   return (

@@ -1,5 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
+import ContentLoader from "react-content-loader"
+
 
 type PizzaType = {
   id: number
@@ -8,6 +10,9 @@ type PizzaType = {
 
 
 export const Pizza = (props: PizzaType) => {
+
+
+
 
 
   const arrSize = ['тонкое' , 'традиционное']
@@ -81,3 +86,26 @@ export const Pizza = (props: PizzaType) => {
     )
 }
 
+
+
+export const LoaderPizza = () => {
+  return   <ContentLoader 
+  speed={2}
+  width={260}
+  height={480}
+  viewBox="0 0 260 480"
+  backgroundColor="#f3f3f3"
+  foregroundColor="#ecebeb"
+ 
+>
+  <circle cx="126" cy="77" r="2" /> 
+  <circle cx="123" cy="168" r="120" /> 
+  <rect x="0" y="300" rx="3" ry="3" width="280" height="26" /> 
+  <rect x="0" y="339" rx="6" ry="6" width="280" height="84" /> 
+  <rect x="0" y="435" rx="0" ry="0" width="64" height="26" /> 
+  <rect x="44" y="448" rx="0" ry="0" width="5" height="2" /> 
+  <rect x="171" y="440" rx="0" ry="0" width="3" height="1" /> 
+  <rect x="164" y="435" rx="0" ry="0" width="1" height="1" /> 
+  <rect x="112" y="434" rx="22" ry="22" width="142" height="26" />
+</ContentLoader>
+}

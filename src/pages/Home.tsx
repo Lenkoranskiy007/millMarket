@@ -1,9 +1,12 @@
 import React from 'react'
 import { Categories, SortPopup } from '../components';
-import { Pizza } from './Pizza';
+import { Pizza , LoaderPizza} from './Pizza';
 import { useDispatch, useSelector } from 'react-redux';
 import {AppStateType} from '../redux/store'
 import {setCategoryAC} from '../redux/reducers/filter'
+import {setPizzasAC, fetchPizzasTC} from '../redux/reducers/pizzas'
+
+
 
 
 
@@ -17,7 +20,19 @@ const sortPopupItems = [{name:'популярности', type: 'popular'}, {nam
 
 export const Home = (props: HomeType) => {
 
+
+
+  React.useEffect(() => {
+    dispatch(fetchPizzasTC())
+ 
+   }
+   , [])
+
   const items = useSelector((state: AppStateType ) =>  state.pizzasReducer.items)
+  const isLoaded = useSelector((state: AppStateType ) =>  state.pizzasReducer.isLoaded)
+  console.log(isLoaded);
+  
+
   const dispatch = useDispatch()
   const onSelectCategory = React.useCallback((item: number) => {
     dispatch(setCategoryAC(item))
@@ -35,10 +50,9 @@ export const Home = (props: HomeType) => {
           <h2 className="content__title">Все Фрукты</h2>
           <div className="content__items">
             {
-              //@ts-ignore
-              items.map((item) => <Pizza key={item.id} item={item}/>)
-              
-            }
+            //@ts-ignore
+            isLoaded ? items.map((item, id) => <Pizza key={id} item={item}/>) :  Array(10).fill(<LoaderPizza/>)}
+           
            
           </div>
         </div>
