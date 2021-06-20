@@ -1,17 +1,34 @@
 import userEvent from '@testing-library/user-event'
-import React, { useEffect, useRef, useState } from 'react'
+//@ts-ignore
+import React, { useEffect, useRef, useState , useSelector} from 'react'
+import {AppStateType} from '../redux/store'
+
+
 
 
 type SortPopupType = {
+    onSelectSortType: (item: any) => void
+    sortByName: string
     item: any
+    setSortByAC: (payload: string) => void
 }
 
+
 export const SortPopup = React.memo((props: SortPopupType) => {
+  
     const [popup, setPopup] = useState<null | string | boolean >(false)
-    let [activeitem , setActiveItem ]  = useState<null | number | string>(0)
     const sortRef = useRef() as React.MutableRefObject<HTMLInputElement>;
     //@ts-ignore
-    const activeLabel = props.item[activeitem].name
+    const activeLabel = props.item.find((obj) => obj.type === props.sortByName).name
+    console.log(activeLabel);
+    
+  
+    
+    
+
+
+
+
 
 
 
@@ -25,13 +42,12 @@ export const SortPopup = React.memo((props: SortPopupType) => {
 
     useEffect( () => {
       document.body.addEventListener('click', handleOutsideClick)
-      console.log(sortRef.current)
     }, [])
 
 
    
-    const setItemCallback = (index: number) => {
-      setActiveItem(index)
+    const setItemCallback = (index: any) => {
+      props.onSelectSortType(index)
       setPopup(false)
     } 
 
@@ -66,8 +82,9 @@ export const SortPopup = React.memo((props: SortPopupType) => {
                           props.item.map((obj: any ,index: number) => {
                               return <li 
                                key={`${obj.type}_${index}`}
-                               className={activeitem === index ? 'active': ''}
-                               onClick={() => {setItemCallback(index)}}
+                               //@ts-ignore
+                               className={props.sortByName === obj.type ? 'active': ''}
+                               onClick={() => {setItemCallback(obj.type)}}
                                >
                                   {obj.name}
                               </li>
