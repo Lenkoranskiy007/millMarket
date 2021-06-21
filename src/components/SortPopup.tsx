@@ -8,7 +8,7 @@ import {AppStateType} from '../redux/store'
 
 type SortPopupType = {
     onSelectSortType: (item: any) => void
-    sortByName: string
+    sortByName: any
     item: any
     setSortByAC: (payload: string) => void
 }
@@ -20,7 +20,6 @@ export const SortPopup = React.memo((props: SortPopupType) => {
     const sortRef = useRef() as React.MutableRefObject<HTMLInputElement>;
     //@ts-ignore
     const activeLabel = props.item.find((obj) => obj.type === props.sortByName).name
-    console.log(activeLabel);
     
   
     
@@ -84,7 +83,7 @@ export const SortPopup = React.memo((props: SortPopupType) => {
                                key={`${obj.type}_${index}`}
                                //@ts-ignore
                                className={props.sortByName === obj.type ? 'active': ''}
-                               onClick={() => {setItemCallback(obj.type)}}
+                               onClick={() => {setItemCallback(obj)}}
                                >
                                   {obj.name}
                               </li>

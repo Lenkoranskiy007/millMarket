@@ -19,14 +19,9 @@ function App() {
 
   const pizza = useSelector((state: AppStateType ) =>  state.pizzasReducer.items)
 
-  const dispatch = useDispatch()
 
 
-  React.useEffect(() => {
-    dispatch(fetchPizzasTC())
- 
-   }
-   , [])
+
  
 
 

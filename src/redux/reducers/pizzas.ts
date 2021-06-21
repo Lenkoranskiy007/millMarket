@@ -67,11 +67,11 @@ export const setIsLoadedAC = (payload: boolean): IsLoadedType => {
 
 
 
-export const fetchPizzasTC = () => {
+export const fetchPizzasTC = (sortBy: any, category: any) => {
   
   return  (dispatch: Dispatch) => {
     dispatch(setIsLoadedAC(false))
-    axios.get('http://localhost:3001/pizzas').then((res) => {
+    axios.get(`http://localhost:3001/pizzas?${category !== null ? `category=${category}`: ''}&_sort=${sortBy}&_order=des`).then((res) => {
       dispatch(setPizzasAC(res.data))}) 
       
       

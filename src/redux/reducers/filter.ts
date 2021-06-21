@@ -1,12 +1,20 @@
 
 const initialState: filterStateType = {
    category: null,
-   sortBy: 'popular'
+   sortBy: {
+       type: 'popular',
+       order: 'desc'
+   }
 }
 
 export type  filterStateType = {
     category: number | null
-    sortBy: string
+    sortBy: SortByType
+}
+
+type SortByType = {
+    type: string
+       order: string
 }
 
 

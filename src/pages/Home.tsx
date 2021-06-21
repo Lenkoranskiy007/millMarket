@@ -16,24 +16,24 @@ type HomeType = {
 }
 
 const categoryName = [ 'Фрукты', 'Ягоды', 'Овощи', 'Зелень','Сухофрукты']
-const sortPopupItems = [{name:'популярности', type: 'popular'}, {name:'цене', type: 'price'},{name:'алфавиту', type: 'alphabet'} ]
+const sortPopupItems = [{name:'популярности', type: 'popular', order: 'desc'}, {name:'цене', type: 'price', order: 'desc' },{name:'алфавиту', type: 'name', order: 'asc'} ]
 
 export const Home = (props: HomeType) => {
   const items = useSelector((state: AppStateType ) =>  state.pizzasReducer.items)
   const isLoaded = useSelector((state: AppStateType ) =>  state.pizzasReducer.isLoaded)
   const category = useSelector((state: AppStateType) => state.filterReducer.category)
   const sortByName = useSelector((state: AppStateType) => state.filterReducer.sortBy)
-  console.log(sortByName);
+
   
   
   
 
 
   React.useEffect(() => {
-    dispatch(fetchPizzasTC())
+    dispatch(fetchPizzasTC(sortByName,category ))
  
    }
-   , [category])
+   , [category, sortByName])
 
 
   const dispatch = useDispatch()
@@ -53,7 +53,7 @@ export const Home = (props: HomeType) => {
         <div className="container">
           <div className="content__top">
          <Categories  activeCategory={category}  onSelectCategory={onSelectCategory} item={categoryName}/>
-          <SortPopup setSortByAC={setSortByAC} item={sortPopupItems} sortByName={sortByName} onSelectSortType={onSelectSortType}/>
+          <SortPopup setSortByAC={setSortByAC} item={sortPopupItems} sortByName={sortByName.type} onSelectSortType={onSelectSortType}/>
           </div>
           <h2 className="content__title">Все Фрукты</h2>
           <div className="content__items">
