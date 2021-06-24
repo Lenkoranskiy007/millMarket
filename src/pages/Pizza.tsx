@@ -17,7 +17,7 @@ export const Pizza = (props: PizzaType) => {
   const [activeType , setActiveType ] = React.useState(props.item.types[0])
   const [itemActive, setItemActive] = React.useState(0)
 
-  const id = props.id 
+  const id = props.item.id
   const name = props.item.name
   const imageUrl = props.item.imageUrl
   const price  =  props.item.price
@@ -112,9 +112,8 @@ export const Pizza = (props: PizzaType) => {
         />
       </svg> */}
       <span onClick={onAddPizza}>Добавить</span>
-      {console.log(props.addedCount) }
     {props.addedCount && <i>{props.addedCount}</i>}
-      <i>2</i>
+     
     </div>
   </div>
 </div> 
