@@ -4,21 +4,54 @@ import ContentLoader from "react-content-loader"
 
 
 type PizzaType = {
+  onClickAddPizza: (obj: any) => void
+  addedCount: any
   id: number
- item: any
+  item: any
 }
+
 
 
 export const Pizza = (props: PizzaType) => {
 
+  const [activeType , setActiveType ] = React.useState(props.item.types[0])
+  const [itemActive, setItemActive] = React.useState(0)
 
+  const id = props.id 
+  const name = props.item.name
+  const imageUrl = props.item.imageUrl
+  const price  =  props.item.price
 
+  
+
+  const onAddPizza = () => {
+    const obj = {
+      //@ts-ignore
+      id,
+      name,
+      //@ts-ignore
+      imageUrl,
+      //@ts-ignore
+      price,
+      //@ts-ignore
+      size: props.item.sizes[itemActive],
+      type: arrSize[activeType],
+    };
+    props.onClickAddPizza(obj);
+  };
+
+  
+  
+  
+  
+
+  
+  
+  
 
 
   const arrSize = ['тонкое' , 'традиционное']
 
-  const [activeType , setActiveType ] = React.useState(0)
-  const [itemActive, setItemActive] = React.useState(0)
 
   const setActiveItem = (index: number) => {
      setActiveType(index)
@@ -62,6 +95,7 @@ export const Pizza = (props: PizzaType) => {
       <li>{props.item.sizes[2]} см</li> */}
     </ul>
   </div>
+
   <div className="pizza-block__bottom">
     <div className="pizza-block__price">от {props.item.price} ₽</div>
     <div className="button button--outline button--add">
@@ -77,7 +111,9 @@ export const Pizza = (props: PizzaType) => {
           fill="white"
         />
       </svg> */}
-      <span>Добавить</span>
+      <span onClick={onAddPizza}>Добавить</span>
+      {console.log(props.addedCount) }
+    {props.addedCount && <i>{props.addedCount}</i>}
       <i>2</i>
     </div>
   </div>

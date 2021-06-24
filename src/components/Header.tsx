@@ -15,10 +15,7 @@ import {useSelector} from 'react-redux'
   }))
 
 
-  
 
-  
-  
 
     return <div>
     <div className="header">

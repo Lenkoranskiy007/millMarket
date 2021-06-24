@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {AppStateType} from '../redux/store'
 import {setCategoryAC, setSortByAC} from '../redux/reducers/filter'
 import {setPizzasAC, fetchPizzasTC} from '../redux/reducers/pizzas'
+import {addPizzaAC} from '../redux/reducers/cart'
 
 
 
@@ -23,6 +24,10 @@ export const Home = (props: HomeType) => {
   const isLoaded = useSelector((state: AppStateType ) =>  state.pizzasReducer.isLoaded)
   const category = useSelector((state: AppStateType) => state.filterReducer.category)
   const sortByName = useSelector((state: AppStateType) => state.filterReducer.sortBy)
+  const cartItems = useSelector((state: AppStateType) => state.cartReducer.items)
+  
+  
+
 
   
   
@@ -47,6 +52,10 @@ export const Home = (props: HomeType) => {
   }, [])
 
   
+  const addPizza = React.useCallback((item: any) => {
+    dispatch(addPizzaAC(item))
+  }, [])
+
   
 
  return <> 
@@ -59,7 +68,7 @@ export const Home = (props: HomeType) => {
           <div className="content__items">
             {
             //@ts-ignore
-            isLoaded ? items.map((item, id) => <Pizza key={item.id} item={item}/>) :  Array(10).fill(0).map((_, index) =><LoaderPizza key={index}/> )}
+            isLoaded ? items.map((item, id) => <Pizza onClickAddPizza={addPizza} key={item.id} item={item} addedCount={cartItems[item.id] && cartItems[item.id].length}/>) :  Array(10).fill(0).map((_, index) =><LoaderPizza key={index}/> )}
            
            
           </div>
