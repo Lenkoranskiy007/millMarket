@@ -2,6 +2,8 @@
  
 const ADD_PIZZA_CART  = 'ADD_PIZZA_CART'
 const REMOVE_PIZZA_CART  = 'REMOVE_PIZZA_CART'
+const REMOVE_CART_ITEM  = 'REMOVE_CART_ITEM'
+
 
 
 
@@ -28,8 +30,8 @@ const REMOVE_PIZZA_CART  = 'REMOVE_PIZZA_CART'
 
  export const cartReducer = (state: cartStateType = initialState, action: any) => {
     switch(action.type ) {
+      
        case ADD_PIZZA_CART : {
-
           //@ts-ignore
         const currentPizzaItems = !state.items[action.payload.id] 
         ? [action.payload] 
@@ -66,12 +68,30 @@ const REMOVE_PIZZA_CART  = 'REMOVE_PIZZA_CART'
 
         case REMOVE_PIZZA_CART: 
         return {items: {},  totalPrice: 0, totalCount: 0}
-        
+
+
+        case REMOVE_CART_ITEM: 
+
+        const newItems = {
+           ...state.items
+        };
+        //@ts-ignore
+        delete newItems[action.payload]
+
+
+        return {
+
+         ...state,
+         items: newItems
+        }
+
+
        
            default:
                return state;
     }
     return state
+
 
 }
 
@@ -79,6 +99,12 @@ const REMOVE_PIZZA_CART  = 'REMOVE_PIZZA_CART'
 type  AddPizzaACType = {
    type: 'ADD_PIZZA_CART'
    payload: any   
+
+}
+
+type  RemoveItemCartType = {
+   type: 'REMOVE_CART_ITEM'
+   payload: number   
 
 }
 
@@ -91,6 +117,11 @@ export const addPizzaAC = (obj: any): AddPizzaACType => {
 
 export const removePizzaAC = () => {
    return {type: REMOVE_PIZZA_CART}
+}
+
+
+export const removeCartItemAC = (id: number): RemoveItemCartType => {
+   return {type: REMOVE_CART_ITEM, payload: id}
 }
 
 
