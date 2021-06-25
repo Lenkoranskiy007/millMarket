@@ -1,19 +1,28 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {CartItems} from '../components/CartItems'
 import { AppStateType } from '../redux/store'
+import {removePizzaAC} from '../redux/reducers/cart'
+
 
 
 export const Cart = () => {
 
   const {totalPrice, totalCount, items } = useSelector((state: AppStateType) => state.cartReducer)
 
+  const dispatch = useDispatch()
+
  
   const addedPizza = Object.keys(items).map(key =>  {
     //@ts-ignore
-    return items[key][0]
-    
+    return items[key].items[0];   
   })
+
+  const removePizzaCl = () => {
+    dispatch(removePizzaAC())
+  }
+
+  
 
   
   
@@ -37,13 +46,14 @@ export const Cart = () => {
 <path d="M11.6666 9.16667V14.1667" stroke="#B6B6B6" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
 </svg>
 
-                <span>Очистить корзину</span>
+                <span  onClick={removePizzaCl}>Очистить корзину</span>
               </div>
             </div>
             <div className="content__items">
               {
                 addedPizza.map((item, index) => {
-                  return <CartItems key={index} name={item.name } price={item.price} type={item.type} size={item.size}/>
+                  //@ts-ignore
+                  return <CartItems key={index}   name={item.name } price={item.price} totalPrice={items[item.id].totalPrice} totalCount={items[item.id].items.length}  type={item.type} size={item.size}/>
                 })
               }
 

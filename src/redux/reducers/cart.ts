@@ -1,6 +1,8 @@
 
  
 const ADD_PIZZA_CART  = 'ADD_PIZZA_CART'
+const REMOVE_PIZZA_CART  = 'REMOVE_PIZZA_CART'
+
 
 
  const initialState: cartStateType = {
@@ -22,43 +24,61 @@ const ADD_PIZZA_CART  = 'ADD_PIZZA_CART'
  const getTotalPrice = (arr) => arr.reduce((sum, obj) => obj.price + sum, 0);
 
  
+
+
  export const cartReducer = (state: cartStateType = initialState, action: any) => {
     switch(action.type ) {
-       case ADD_PIZZA_CART : 
+       case ADD_PIZZA_CART : {
+
+          //@ts-ignore
+        const currentPizzaItems = !state.items[action.payload.id] 
+        ? [action.payload] 
+        //@ts-ignore
+        : [...state.items[action.payload.id].items, action.payload ]
+
+
        const newItems = {
             //@ts-ignore
             ...state.items,
             //@ts-ignore
-            [action.payload.id]: !state.items[action.payload.id] ? [action.payload] : [...state.items[action.payload.id], action.payload ]
+            [action.payload.id]:  {
+                items: currentPizzaItems,
+                totalPrice: getTotalPrice(currentPizzaItems)
+            }
           
        }
+
+       
+       const items = Object.values(newItems).map(obj => obj.items)
        //@ts-ignore
-       const  allPizzas = [].concat.apply([], Object.values(newItems))
+       const  allPizzas = [].concat.apply([], items)
        //@ts-ignore
-       const totalPrice = allPizzas.reduce((sum, obj) => obj.price + sum, 0) 
+       const totalPrice = getTotalPrice(allPizzas)
 
-
-
-           return {
+          return {
                ...state,
                items: newItems,
                totalCount: allPizzas.length,
                totalPrice
               
-           }; 
+           } 
+        }
+
+        case REMOVE_PIZZA_CART: 
+        return {items: {},  totalPrice: 0, totalCount: 0}
         
        
-
            default:
                return state;
     }
     return state
+
 }
 
 
 type  AddPizzaACType = {
    type: 'ADD_PIZZA_CART'
-   payload: any
+   payload: any   
 
 }
 
@@ -66,6 +86,13 @@ type  AddPizzaACType = {
 export const addPizzaAC = (obj: any): AddPizzaACType => {
   return {type: ADD_PIZZA_CART, payload: obj }
 }
+
+
+
+export const removePizzaAC = () => {
+   return {type: REMOVE_PIZZA_CART}
+}
+
 
   
 
