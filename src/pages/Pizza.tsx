@@ -1,11 +1,13 @@
 import React from 'react'
 import classNames from 'classnames'
 import ContentLoader from "react-content-loader"
+import { useSelector } from 'react-redux'
+import { AppStateType } from '../redux/store'
 
 
 type PizzaType = {
   onClickAddPizza: (obj: any) => void
-  addedCount: any
+  addedCount: number
   id: number
   item: any
 }
@@ -16,6 +18,8 @@ export const Pizza = (props: PizzaType) => {
 
   const [activeType , setActiveType ] = React.useState(props.item.types[0])
   const [itemActive, setItemActive] = React.useState(0)
+
+  const totalCount = useSelector((state: AppStateType) => state.cartReducer.totalCount )
 
   const id = props.item.id
   const name = props.item.name
@@ -111,8 +115,9 @@ export const Pizza = (props: PizzaType) => {
           fill="white"
         />
       </svg> */}
-      <span onClick={onAddPizza}>Добавить</span>
+      <span onClick={onAddPizza}>Добавить </span>
     {props.addedCount && <i>{props.addedCount}</i>}
+    {console.log(props.addedCount)}
      
     </div>
   </div>

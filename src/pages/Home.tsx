@@ -68,7 +68,7 @@ export const Home = (props: HomeType) => {
           <div className="content__items">
             {
             //@ts-ignore
-            isLoaded ? items.map((item, id) => <Pizza onClickAddPizza={addPizza} key={item.id} item={item} addedCount={cartItems[item.id] && cartItems[item.id].length}/>) :  Array(10).fill(0).map((_, index) =><LoaderPizza key={index}/> )}
+            isLoaded ? items.map((item, id) => <Pizza onClickAddPizza={addPizza} key={item.id} item={item} addedCount={cartItems[item.id] && cartItems[item.id].items.length}/>) :  Array(10).fill(0).map((_, index) =><LoaderPizza key={index}/> )}
            
            
           </div>
