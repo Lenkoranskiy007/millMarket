@@ -3,46 +3,54 @@ import classNames from 'classnames'
 import ContentLoader from "react-content-loader"
 import { useSelector } from 'react-redux'
 import { AppStateType } from '../redux/store'
+import {CategoryItemsType} from '../redux/reducers/pizzas'
+import axios from 'axios'
 
 
 type PizzaType = {
   onClickAddPizza: (obj: any) => void
   addedCount: number
   id: number
-  item: any
+  item: CategoryItemsType
 }
+
+
+
 
 
 
 export const Pizza = (props: PizzaType) => {
 
-  const [activeType , setActiveType ] = React.useState(props.item.types[0])
+  // const [activeType , setActiveType ] = React.useState(props.item.types[0])
   const [itemActive, setItemActive] = React.useState(0)
+ 
+  
 
   const totalCount = useSelector((state: AppStateType) => state.cartReducer.totalCount )
 
-  const id = props.item.id
-  const name = props.item.name
-  const imageUrl = props.item.imageUrl
-  const price  =  props.item.price
+  // const id = props.item.id
+  // const name = props.item.name
+  // const imageUrl = props.item.imageUrl
+  // const price  =  props.item.price
+  
 
   
 
-  const onAddPizza = () => {
-    const obj = {
-      //@ts-ignore
-      id,
-      name,
-      //@ts-ignore
-      imageUrl,
-      //@ts-ignore
-      price,
-      //@ts-ignore
-      size: props.item.sizes[itemActive],
-      type: arrSize[activeType],
-    };
-    props.onClickAddPizza(obj);
-  };
+  // const onAddPizza = () => {
+  //   const obj = {
+  //     //@ts-ignore
+  //     id,
+  //     name,
+  //     //@ts-ignore
+  //     imageUrl,
+  //     //@ts-ignore
+  //     price,
+  //     //@ts-ignore
+  //     size: props.item.sizes[itemActive],
+  //     type: arrSize[activeType],
+  //   };
+  //   props.onClickAddPizza(obj);
+  // };
 
   
   
@@ -57,9 +65,9 @@ export const Pizza = (props: PizzaType) => {
   const arrSize = ['тонкое' , 'традиционное']
 
 
-  const setActiveItem = (index: number) => {
-     setActiveType(index)
-  }
+  // const setActiveItem = (index: number) => {
+  //    setActiveType(index)
+  // }
 
   const ItemActiveCalbback = (index: number) => {
     setItemActive(index)
@@ -71,29 +79,29 @@ export const Pizza = (props: PizzaType) => {
              <div className="pizza-block">
   <img
     className="pizza-block__image"
-    src={props.item.imageUrl}
+    src={props.item.imagePath}
     alt="Pizza"
   />
   <h4 className="pizza-block__title">{props.item.name}</h4>
   <div className="pizza-block__selector">
     <ul>
-    {
+    {/* {
       arrSize.map((arr, index) => <li key={index} onClick={() => {setActiveItem(index)}} className={classNames({
         active: activeType === index,
         disabled: !props.item.types.includes(index)
       })}>
         {arr}
       </li>)
-    }
+    } */}
     </ul>
     <ul>
-      {
+      {/* {
         props.item.sizes.map((itm: any , index: number ) => {
             return <li onClick={() => ItemActiveCalbback(index)} className={itemActive === index ? 'active': ''}>
               {itm}
             </li>
         })
-      }
+      } */}
     {/* <li className="active">{props.item.sizes[0]} см</li >
       <li>{props.item.sizes[1]} см</li>
       <li>{props.item.sizes[2]} см</li> */}
@@ -115,7 +123,7 @@ export const Pizza = (props: PizzaType) => {
           fill="white"
         />
       </svg> */}
-      <span onClick={onAddPizza}>Добавить </span>
+      <span >Добавить </span>
     {props.addedCount && <i>{props.addedCount}</i>}
     {console.log(props.addedCount)}
      

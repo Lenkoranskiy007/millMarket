@@ -13,12 +13,16 @@ export type AppStateType = {
      cartReducer: cartStateType
      filterReducer: filterStateType
      pizzasReducer: pizzasStateType
+     
+
+
 }
 
 const rootReducers = combineReducers<AppStateType>({
      cartReducer,
      filterReducer,
-     pizzasReducer
+     pizzasReducer,
+
 })
 
 //@ts-ignore

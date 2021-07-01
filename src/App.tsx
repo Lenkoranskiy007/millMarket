@@ -7,7 +7,6 @@ import {Route, Switch} from 'react-router-dom'
 import { Cart } from './pages/Cart';
 import { useDispatch, useSelector } from 'react-redux';
 import {AppStateType} from './redux/store'
-import {setPizzasAC, fetchPizzasTC} from './redux/reducers/pizzas'
 
 
 

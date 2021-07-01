@@ -11,15 +11,12 @@ type CategoriesType = {
 }
 
 export const Categories = React.memo((props: CategoriesType) => {
+  
 
-
-
-  console.log(props.activeCategory);
   
     return <> 
        <div className="categories">
               <ul>
-                <li className={props.activeCategory === null ? 'active' : ''} onClick={() => {props.onSelectCategory(null)}} >Все</li>
               
                 {props.item &&
                   props.item.map((item, key)  => {
@@ -34,7 +31,11 @@ export const Categories = React.memo((props: CategoriesType) => {
                     </li>
                   })
                 }
+                
               </ul>
             </div>
     </>
 })
+
+
+

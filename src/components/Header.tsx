@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../assets/img/logo10.svg'
+import pizza from '../assets/img/pizza-logo.svg'
 import {Button} from '../components'
 import {Link} from 'react-router-dom'
 import { AppStateType } from '../redux/store'
@@ -21,11 +22,13 @@ import {useSelector} from 'react-redux'
     <div className="header">
         <div className="container">
           <Link to='/'>
-          <div className="header__logo">
+          <div  className="header__logo">
             <img width="38" src={logo} alt="millMarket logo" />
-           
+          
             <div>
-            <h3>Доставка фруктов и овощей</h3>
+              
+            <h1>Доставка фруктов , овощей и сухофруктов </h1>
+             
             </div>
           </div>
           </Link>
