@@ -22,12 +22,7 @@ export const SortPopup = React.memo((props: SortPopupType) => {
     const activeLabel = props.item.find((obj) => obj.type === props.sortByName).name
     
   
-    
-    
-
-
-
-
+   
 
 
 

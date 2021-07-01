@@ -7,6 +7,9 @@ import {Route, Switch} from 'react-router-dom'
 import { Cart } from './pages/Cart';
 import { useDispatch, useSelector } from 'react-redux';
 import {AppStateType} from './redux/store'
+import { AreWorking } from './pages/AreWorking';
+import { Contacts } from './pages/Contacts';
+import {Delivery} from './pages/Delivery'
 
 
 
@@ -32,7 +35,15 @@ function App() {
         <Switch>
        <Route exact path='/' render={() => <Home  items={pizza}/>} />
        <Route exact path='/cart' render={() => <Cart/>} />
+       <Route exact path='/areworking' render={() => <AreWorking/>} />
+       <Route exact path='/contacts' render={() => <Contacts/>} />
+       <Route exact path='/delivery' render={() => <Delivery/>} />
+
+
+
        <Route exact path='*' render={() => <h1>404: страница недоступна</h1>} />
+       
+       
 
        </Switch>
       </div>
