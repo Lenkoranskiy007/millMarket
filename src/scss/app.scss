@@ -118,7 +118,9 @@ body {
       display: flex;
       align-items: center;
       margin-right: 15px;
-      width: 10%;
+      width: 80px;
+      height: 80px;
+
 
       img {
         width: 80px;
@@ -276,7 +278,7 @@ body {
 
   &--empty {
     margin: 0 auto;
-    width: 560px;
+    width: 800px;
     text-align: center;
 
     h2 {
@@ -298,7 +300,8 @@ body {
 
     img {
       display: block;
-      width: 300px;
+      width: 100%;
+     
       margin: 45px auto 60px;
     }
 
