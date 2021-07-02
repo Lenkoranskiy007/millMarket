@@ -35,12 +35,6 @@ export const Delivery = () => {
            <br/>
 
 
-
-
-
-
-
-
             <Link to="/" className="button button--black">
               <span>Вернуться назад</span>
             </Link>

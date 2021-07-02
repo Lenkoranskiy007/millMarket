@@ -5,7 +5,7 @@
 @import 'components/all';
 
 body {
-  background-color: $background;
+  background-color: #c5e1a5;
   padding: 50px 0 ;
 }
 
@@ -306,6 +306,7 @@ body {
     }
 
     .button--black {
+      background-color: green;
       padding: 12px 0 14px;
       width: 230px;
       margin: 0 auto;
