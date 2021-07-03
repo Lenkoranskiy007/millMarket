@@ -27,38 +27,31 @@ export const Pizza = (props: PizzaType) => {
   
 
   const totalCount = useSelector((state: AppStateType) => state.cartReducer.totalCount )
+  console.log(totalCount)
 
-  // const id = props.item.id
-  // const name = props.item.name
-  // const imageUrl = props.item.imageUrl
-  // const price  =  props.item.price
-  
-
-  
-
-  // const onAddPizza = () => {
-  //   const obj = {
-  //     //@ts-ignore
-  //     id,
-  //     name,
-  //     //@ts-ignore
-  //     imageUrl,
-  //     //@ts-ignore
-  //     price,
-  //     //@ts-ignore
-  //     size: props.item.sizes[itemActive],
-  //     type: arrSize[activeType],
-  //   };
-  //   props.onClickAddPizza(obj);
-  // };
-
-  
-  
-  
+  const id = props.item.id
+  const name = props.item.name 
+  const imagePath = props.item.imagePath 
+  const price = props.item.price 
   
 
   
-  
+
+  const onAddPizza = () => {
+    const obj = {
+      //@ts-ignore
+      id,
+      name,
+      //@ts-ignore
+      imagePath,
+      //@ts-ignore
+      price,
+      //@ts-ignore
+      
+    };
+    props.onClickAddPizza(obj);
+  };
+
   
 
 
@@ -123,7 +116,7 @@ export const Pizza = (props: PizzaType) => {
           fill="white"
         />
       </svg> */}
-      <span >Добавить </span>
+      <span onClick={onAddPizza} >Добавить </span>
     {props.addedCount && <i>{props.addedCount}</i>}
     {console.log(props.addedCount)}
      
