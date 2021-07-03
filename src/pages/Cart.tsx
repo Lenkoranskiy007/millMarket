@@ -74,7 +74,7 @@ export const Cart = () => {
              {
                addedPizza.map((item, index) => {
                  //@ts-ignore
-                 return <CartItems key={index} id={item.id}  name={item.name } price={item.price} totalPrice={items[item.id].totalPrice} totalCount={items[item.id].items.length}  type={item.type} size={item.size}/>
+                 return <CartItems imagePath={item.imagePath} key={index} id={item.id}  name={item.name } price={item.price} totalPrice={items[item.id].totalPrice} totalCount={items[item.id].items.length}  type={item.type} size={item.size}/>
                })
              }
 
@@ -84,7 +84,7 @@ export const Cart = () => {
            </div>
            <div className="cart__bottom">
              <div className="cart__bottom-details">
-               <span> Всего пицц: <b>{totalCount} шт.</b> </span>
+               <span> Всего продуктов: <b>{totalCount} шт.</b> </span>
                <span> Сумма заказа: <b>{totalPrice} ₽</b> </span>
              </div>
              <div className="cart__bottom-buttons">

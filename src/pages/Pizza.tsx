@@ -76,30 +76,7 @@ export const Pizza = (props: PizzaType) => {
     alt="Pizza"
   />
   <h4 className="pizza-block__title">{props.item.name}</h4>
-  <div className="pizza-block__selector">
-    <ul>
-    {/* {
-      arrSize.map((arr, index) => <li key={index} onClick={() => {setActiveItem(index)}} className={classNames({
-        active: activeType === index,
-        disabled: !props.item.types.includes(index)
-      })}>
-        {arr}
-      </li>)
-    } */}
-    </ul>
-    <ul>
-      {/* {
-        props.item.sizes.map((itm: any , index: number ) => {
-            return <li onClick={() => ItemActiveCalbback(index)} className={itemActive === index ? 'active': ''}>
-              {itm}
-            </li>
-        })
-      } */}
-    {/* <li className="active">{props.item.sizes[0]} см</li >
-      <li>{props.item.sizes[1]} см</li>
-      <li>{props.item.sizes[2]} см</li> */}
-    </ul>
-  </div>
+ 
 
   <div className="pizza-block__bottom">
     <div className="pizza-block__price">от {props.item.price} ₽</div>

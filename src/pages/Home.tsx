@@ -34,7 +34,7 @@ export const Home = (props: HomeType) => {
   
   React.useEffect(( ) => {
 
-    dispatch(fetchItemsTC(5))
+    dispatch(fetchItemsTC(category))
    
   }, [])
   
@@ -77,7 +77,7 @@ export const Home = (props: HomeType) => {
         <div className="container">
           <div className="content__top">
          <Categories  activeCategory={category}  onSelectCategory={onSelectCategory} item={categoryName}/>
-          <SortPopup setSortByAC={setSortByAC} item={sortPopupItems} sortByName={sortByName.type} onSelectSortType={onSelectSortType}/>
+          {/* <SortPopup setSortByAC={setSortByAC} item={sortPopupItems} sortByName={sortByName.type} onSelectSortType={onSelectSortType}/> */}
           </div>
           <h2 className="content__title"></h2>
           <div className="content__items">

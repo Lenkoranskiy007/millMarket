@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event'
-//@ts-ignore
-import React, { useEffect, useRef, useState , useSelector} from 'react'
+
+import React, { useEffect, useRef, useState } from 'react'
 import {AppStateType} from '../redux/store'
 
 
@@ -85,9 +85,7 @@ export const SortPopup = React.memo((props: SortPopupType) => {
                           })
   
                       }
-                    {/* <li className="active">популярности</li>
-                    <li>цене</li>
-                    <li>алфавиту</li> */}
+                    
                   </ul>
                 </div>
                 : ''
