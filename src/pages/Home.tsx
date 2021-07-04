@@ -1,5 +1,5 @@
 import React from 'react'
-import { Categories, SortPopup } from '../components';
+import { Categories} from '../components/Categories';
 import { Pizza , LoaderPizza} from './Pizza';
 import { useDispatch, useSelector } from 'react-redux';
 import {AppStateType} from '../redux/store'

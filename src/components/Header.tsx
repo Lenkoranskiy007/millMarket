@@ -1,14 +1,15 @@
 import React from 'react'
 import logo from '../assets/img/logo10.svg'
 import pizza from '../assets/img/pizza-logo.svg'
-import {Button} from '../components'
+import {Button} from './Button'
 import LongMenu from './Link'
 import SimpleMenu from './Menu'
 import {Link} from 'react-router-dom'
 import { AppStateType } from '../redux/store'
 import {useSelector} from 'react-redux'
 
- export const Header = () => {
+
+export const Header = () => {
 
 
 
@@ -88,3 +89,5 @@ import {useSelector} from 'react-redux'
     </div>
    
 }
+
+

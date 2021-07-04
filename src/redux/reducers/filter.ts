@@ -26,7 +26,7 @@ const SET_SORT_BY = 'SET_SORT_BY'
 export const filterReducer = (state: filterStateType = initialState, action: any) => {
     switch(action.type) {
         case SET_CATEGORY:
-        debugger     
+           
         return {
             ...state,
             category: action.catIndex

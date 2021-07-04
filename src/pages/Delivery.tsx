@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 export const Delivery = () => {
     return <>
 
-
     <div className="content">
         <div className="container container--cart">
              <div className="cart cart--empty">
