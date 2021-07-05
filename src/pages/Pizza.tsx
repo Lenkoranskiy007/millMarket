@@ -27,7 +27,7 @@ export const Pizza = (props: PizzaType) => {
   
 
   const totalCount = useSelector((state: AppStateType) => state.cartReducer.totalCount )
-  console.log(totalCount)
+  
 
   const id = props.item.id
   const name = props.item.name 
@@ -95,7 +95,7 @@ export const Pizza = (props: PizzaType) => {
       </svg> */}
       <span onClick={onAddPizza} >Добавить </span>
     {props.addedCount && <i>{props.addedCount}</i>}
-    {console.log(props.addedCount)}
+    
      
     </div>
   </div>
