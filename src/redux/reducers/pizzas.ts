@@ -101,7 +101,7 @@ export const fetchItemsTC = (category: number | null) => {
   
   return  (dispatch: Dispatch) => {
     // dispatch(setIsLoadedAC(false))
-    axios.get(`https://api.millmarket.ru/api/getProducts?categoryId=${ category === null ? 5 : category }`).then((res) => {
+    axios.get(`https://api.millmarket.ru/api/getProducts?categoryId=${ category ===  0 ? 5 : category }`).then((res) => {
      dispatch(setPizzasAC(res.data.products))  
    
       

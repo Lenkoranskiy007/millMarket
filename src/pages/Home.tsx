@@ -34,7 +34,7 @@ export const Home = (props: HomeType) => {
   
   React.useEffect(( ) => {
 
-    dispatch(fetchItemsTC(category))
+    dispatch(fetchItemsTC(5))
    
   }, [])
   

@@ -4,7 +4,6 @@ import ContentLoader from "react-content-loader"
 import { useSelector } from 'react-redux'
 import { AppStateType } from '../redux/store'
 import {CategoryItemsType} from '../redux/reducers/pizzas'
-import axios from 'axios'
 
 
 type PizzaType = {
@@ -23,6 +22,32 @@ export const Pizza = (props: PizzaType) => {
 
   // const [activeType , setActiveType ] = React.useState(props.item.types[0])
   const [itemActive, setItemActive] = React.useState(0)
+
+
+    
+  const myIfFunc = () => {
+    if (props.item.categoryId == 1 ) {
+      return <div className="pizza-block__price"> 500 гр  от {props.item.price} ₽</div> 
+    
+  } else if (props.item.categoryId == 2) {
+    return <div className="pizza-block__price"> 500 гр  от {props.item.price} ₽</div> 
+  } 
+  else if (props.item.categoryId == 3) {
+    return <div className="pizza-block__price"> 100 гр  от {props.item.price} ₽</div> 
+  } 
+  else if (props.item.categoryId == 4) {
+    return <div className="pizza-block__price"> 100 гр  от {props.item.price} ₽</div> 
+  } else {
+    return <div className="pizza-block__price"> 1 шт  от {props.item.price} ₽</div> 
+
+  }
+
+
+  
+  }
+
+
+  
  
   
 
@@ -58,14 +83,6 @@ export const Pizza = (props: PizzaType) => {
   const arrSize = ['тонкое' , 'традиционное']
 
 
-  // const setActiveItem = (index: number) => {
-  //    setActiveType(index)
-  // }
-
-  const ItemActiveCalbback = (index: number) => {
-    setItemActive(index)
-  }
-
 
     return (
         <div>
@@ -79,7 +96,15 @@ export const Pizza = (props: PizzaType) => {
  
 
   <div className="pizza-block__bottom">
-    <div className="pizza-block__price">от {props.item.price} ₽</div>
+    {
+      
+      myIfFunc()
+    //   props.item.categoryId == 1 ? <div className="pizza-block__price"> 500 гр  от {props.item.price} ₽</div> 
+    // :  <div className="pizza-block__price">1 шт от {props.item.price} ₽</div>
+      
+
+    }
+    {/* <div className="pizza-block__price">от {props.item.price} ₽</div> */}
     <div className="button button--outline button--add">
       {/* <svg
         width="12"
